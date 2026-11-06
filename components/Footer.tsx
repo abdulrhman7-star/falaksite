@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Play, Film, Tv, Shield, Zap, Heart } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  lang?: string;
+  onTabChange?: (tab: any) => void;
+  onSelectGenre?: (genreId: any) => void;
+}
+
+export default function Footer({ lang, onTabChange, onSelectGenre }: FooterProps = {}) {
   const pathname = usePathname();
 
   // Do not render footer on embed player page
